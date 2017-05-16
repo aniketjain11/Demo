@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <MMDrawerController.h>
+#import "MMDrawerBarButtonItem.h"
+#import "UIViewController+MMDrawerController.h"
 
 @interface DemoBaseViewController : UIViewController<UITextFieldDelegate, UITextViewDelegate>
 

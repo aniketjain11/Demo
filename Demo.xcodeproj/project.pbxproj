@@ -21,6 +21,10 @@
 		A011655E1ECAD76D0017D2E4 /* DemoBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A011655D1ECAD76D0017D2E4 /* DemoBaseTableViewController.m */; };
 		A01165621ECAD9400017D2E4 /* DrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A01165611ECAD9400017D2E4 /* DrawerViewController.m */; };
 		A01165651ECADB2F0017D2E4 /* Drawer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01165641ECADB2F0017D2E4 /* Drawer.storyboard */; };
+		A01165671ECB0A510017D2E4 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01165661ECB0A510017D2E4 /* Search.storyboard */; };
+		A011656A1ECB0A8B0017D2E4 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A01165691ECB0A8B0017D2E4 /* SearchViewController.m */; };
+		A011656C1ECB30410017D2E4 /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A011656B1ECB30410017D2E4 /* Speech.framework */; };
+		A011656E1ECB30E20017D2E4 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A011656D1ECB30E20017D2E4 /* AVKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +53,11 @@
 		A01165601ECAD9400017D2E4 /* DrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawerViewController.h; sourceTree = "<group>"; };
 		A01165611ECAD9400017D2E4 /* DrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawerViewController.m; sourceTree = "<group>"; };
 		A01165641ECADB2F0017D2E4 /* Drawer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Drawer.storyboard; sourceTree = "<group>"; };
+		A01165661ECB0A510017D2E4 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		A01165681ECB0A8B0017D2E4 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		A01165691ECB0A8B0017D2E4 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		A011656B1ECB30410017D2E4 /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = System/Library/Frameworks/Speech.framework; sourceTree = SDKROOT; };
+		A011656D1ECB30E20017D2E4 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		B2F1297B2353878786B94C9D /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -57,6 +66,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A011656E1ECB30E20017D2E4 /* AVKit.framework in Frameworks */,
+				A011656C1ECB30410017D2E4 /* Speech.framework in Frameworks */,
 				029782C23372F7D4625063D7 /* libPods-Demo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,6 +166,8 @@
 				A01165611ECAD9400017D2E4 /* DrawerViewController.m */,
 				A004C0A71ECA37BB00049A99 /* ViewController.h */,
 				A004C0A81ECA37BB00049A99 /* ViewController.m */,
+				A01165681ECB0A8B0017D2E4 /* SearchViewController.h */,
+				A01165691ECB0A8B0017D2E4 /* SearchViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -164,6 +177,7 @@
 			children = (
 				A004C0AA1ECA37BB00049A99 /* Main.storyboard */,
 				A01165641ECADB2F0017D2E4 /* Drawer.storyboard */,
+				A01165661ECB0A510017D2E4 /* Search.storyboard */,
 			);
 			name = Storyboards;
 			path = Storyboard;
@@ -172,6 +186,8 @@
 		CAD01592E3C107C7BA0F8D30 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A011656D1ECB30E20017D2E4 /* AVKit.framework */,
+				A011656B1ECB30410017D2E4 /* Speech.framework */,
 				95150AB57A809D8D9AE80744 /* libPods-Demo.a */,
 			);
 			name = Frameworks;
@@ -211,6 +227,7 @@
 				TargetAttributes = {
 					A004C09D1ECA37BA00049A99 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = CY2EY3CX9X;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -242,6 +259,7 @@
 				A01165651ECADB2F0017D2E4 /* Drawer.storyboard in Resources */,
 				A004C0AE1ECA37BB00049A99 /* Assets.xcassets in Resources */,
 				A004C0AC1ECA37BB00049A99 /* Main.storyboard in Resources */,
+				A01165671ECB0A510017D2E4 /* Search.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +320,7 @@
 			files = (
 				A01165621ECAD9400017D2E4 /* DrawerViewController.m in Sources */,
 				A004C0A91ECA37BB00049A99 /* ViewController.m in Sources */,
+				A011656A1ECB0A8B0017D2E4 /* SearchViewController.m in Sources */,
 				A011655B1ECACF900017D2E4 /* SSSnackbar.m in Sources */,
 				A01165531ECACC250017D2E4 /* UtilityClass.m in Sources */,
 				A004C0BB1ECA3C4A00049A99 /* HttpService.m in Sources */,
@@ -428,11 +447,13 @@
 			baseConfigurationReference = 804DFFD798F64093B0598289 /* Pods-Demo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = CY2EY3CX9X;
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = in.dewsolutions.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -441,11 +462,13 @@
 			baseConfigurationReference = B2F1297B2353878786B94C9D /* Pods-Demo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = CY2EY3CX9X;
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = in.dewsolutions.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

@@ -7,6 +7,10 @@
 //
 
 #import "DrawerViewController.h"
+#import "UIImageView+UIActivityIndicatorForSDWebImage.h"
+
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+#define APP_TINT_COLOR UIColorFromRGB(0xA9143C)
 
 @interface DrawerViewController ()
 
@@ -23,7 +27,38 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    
+    return 10;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"DrawerCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    UIImageView *icon = (UIImageView *) [cell viewWithTag:1];
+    UILabel *label = (UILabel *) [cell viewWithTag:2];
+    
+    
+    [icon setImageWithURL:[NSURL URLWithString:@""] placeholderImage:nil usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    
+    
+    label.text = @"asdf";
+    label.textColor = APP_TINT_COLOR;
+    //label.textColor = [UIColor colorWithRed:30.0/255.0 green:29.0/255.0 blue:39.0/255.0 alpha:1.0];
+    return cell;
+}
 /*
 #pragma mark - Navigation
 

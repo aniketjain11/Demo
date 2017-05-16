@@ -9,6 +9,8 @@ target 'Demo' do
     pod 'AFNetworking', '~> 3.0'
     pod 'MBProgressHUD', '~> 0.9.2'
     pod 'MMDrawerController', '~> 0.6.0'
+    #pod 'SDWebImage', '~>3.7'
+    pod 'UIActivityIndicator-for-SDWebImage'
     #pod 'JSONModel'
     #pod 'GoogleMaps'
 

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DemoBaseViewController.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : DemoBaseViewController
 
 
 @end

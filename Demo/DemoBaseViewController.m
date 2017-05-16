@@ -10,6 +10,7 @@
 #import "UtilityClass.h"
 #import "SSSnackbar.h"
 #import "AFNetworkReachabilityManager.h"
+#import "SearchViewController.h"
 
 #define NETWORK_ERROR_NOTIFICATION @"NetworkErrorNotification"
 #define ADD_NETWORK_ERROR_OBSERVER [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showNetworkError:) name:NETWORK_ERROR_NOTIFICATION  object:nil];
@@ -303,26 +304,26 @@ if (notification.object) { \
 
 - (void)showSearch {
     
-//    NSArray *viewControllers = self.navigationController.viewControllers;
-//    NSMutableArray *newViewControllers = [[NSMutableArray alloc] init];
-//    
-//    SearchViewController *searchViewController;
-//    for (UIViewController *viewController in viewControllers) {
-//        if ([viewController isKindOfClass:[SearchViewController class]]) {
-//            searchViewController = (SearchViewController *)viewController;
-//        }else{
-//            [newViewControllers addObject:viewController];
-//        }
-//    }
-//    
-//    if (searchViewController) {
-//        [newViewControllers addObject:searchViewController];
-//        [self.navigationController setViewControllers:newViewControllers animated:true];
-//    }else{
-//        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Search" bundle: nil];
-//        SearchViewController *destinationViewController = (SearchViewController *)[mainStoryboard instantiateViewControllerWithIdentifier: @"SVC"];
-//        [self.navigationController pushViewController:destinationViewController animated:YES];
-//    }
+    NSArray *viewControllers = self.navigationController.viewControllers;
+    NSMutableArray *newViewControllers = [[NSMutableArray alloc] init];
+    
+    SearchViewController *searchViewController;
+    for (UIViewController *viewController in viewControllers) {
+        if ([viewController isKindOfClass:[SearchViewController class]]) {
+            searchViewController = (SearchViewController *)viewController;
+        }else{
+            [newViewControllers addObject:viewController];
+        }
+    }
+    
+    if (searchViewController) {
+        [newViewControllers addObject:searchViewController];
+        [self.navigationController setViewControllers:newViewControllers animated:true];
+    }else{
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Search" bundle: nil];
+        SearchViewController *destinationViewController = (SearchViewController *)[mainStoryboard instantiateViewControllerWithIdentifier: @"SVC"];
+        [self.navigationController pushViewController:destinationViewController animated:YES];
+    }
     
 }
 

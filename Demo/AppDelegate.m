@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "DrawerViewController.h"
+#import "MMDrawerController.h"
+#import "MMDrawerVisualState.h"
 
 @interface AppDelegate ()
 
@@ -20,6 +23,49 @@
     return YES;
 }
 
+- (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(nullable NSDictionary *)launchOptions
+{
+    [self setApplicationStartingViewController];
+    
+    return YES;
+}
+
+-(void)setApplicationStartingViewController{
+    
+    UIStoryboard *drawerStoryboard = [UIStoryboard storyboardWithName:@"Drawer" bundle: nil];
+    
+    UIViewController *centerController;
+        
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    centerController = (UINavigationController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"HomeNC"];
+    
+    DrawerViewController *drawerViewController = (DrawerViewController *) [drawerStoryboard instantiateViewControllerWithIdentifier: @"DrawerVC"];
+    
+    MMDrawerController *mm_drawerController = [[MMDrawerController alloc]
+                                               initWithCenterViewController:centerController
+                                               leftDrawerViewController:drawerViewController
+                                               rightDrawerViewController:nil];
+    
+    [mm_drawerController setMaximumLeftDrawerWidth:280.0];
+    [mm_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+    [mm_drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    [mm_drawerController setCenterHiddenInteractionMode:MMDrawerOpenCenterInteractionModeNone];
+    [mm_drawerController setShowsShadow:YES];
+    [mm_drawerController setShadowOffset:CGSizeMake(12, -3)];
+    [mm_drawerController setShouldStretchDrawer:NO];
+    
+    // Set a parallax animation for opening drawer
+    [mm_drawerController setDrawerVisualStateBlock:[MMDrawerVisualState slideVisualStateBlock]];
+    
+    [mm_drawerController setGestureCompletionBlock:^(MMDrawerController *drawerController, UIGestureRecognizer *gesture) {
+        [drawerController.centerViewController.view endEditing:YES];
+    }];
+    
+    
+    //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [self.window setRootViewController:mm_drawerController];
+    
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

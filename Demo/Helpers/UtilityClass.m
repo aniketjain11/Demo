@@ -31,4 +31,33 @@
 //        [self setQuestionOnHUD:hud fromArray:jokesArray];
 //    }
 }
+
++(void)animatePageViewControl:(UIPageControl *)pageControl forScrollView:(UIScrollView*)scrollView{
+    CGFloat pageWidth = scrollView.frame.size.width;
+    int totalPages = floor(scrollView.contentSize.width/scrollView.frame.size.width);
+    int page = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    if (totalPages > 5) {
+        if ((page>2 && page<totalPages-2)||(page == 2 && page<pageControl.currentPage)) {
+            [UIView animateWithDuration:0.2 animations:^{
+                CGRect frame = pageControl.frame;
+                frame.origin.x = - ([pageControl sizeForNumberOfPages:page].width - [pageControl sizeForNumberOfPages:2].width);
+                pageControl.frame = frame;
+            } completion:^(BOOL finished) {
+                pageControl.currentPage = page;
+            }];
+        }else{
+            CGRect frame = pageControl.frame;
+            if (page>2) {
+                frame.origin.x = - ([pageControl sizeForNumberOfPages:totalPages].width - [pageControl sizeForNumberOfPages:5].width);
+            }else{
+                frame.origin.x = 0;
+            }
+            pageControl.frame = frame;
+            pageControl.currentPage = page;
+        }
+    }else{
+        pageControl.currentPage = page;
+    }
+}
+
 @end

@@ -7,7 +7,8 @@
 //
 
 #import "DemoBaseTableViewController.h"
+#import "LoginViewController.h"
 
-@interface DrawerViewController : DemoBaseTableViewController
+@interface DrawerViewController : DemoBaseTableViewController<LoginDelegate>
 
 @end

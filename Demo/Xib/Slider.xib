@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="Slider">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="uwP-5W-3sg">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="z9S-k3-uFM">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="iN0-l3-epB" id="Q0J-fc-vhF"/>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="smz-rU-bTG"/>
+                    </connections>
+                </collectionView>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="J9L-dx-GjZ">
+                    <rect key="frame" x="282" y="163" width="93" height="37"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="93" id="Sil-mL-bZe"/>
+                    </constraints>
+                </pageControl>
+            </subviews>
+            <constraints>
+                <constraint firstItem="uwP-5W-3sg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="A1f-yg-Efy"/>
+                <constraint firstAttribute="trailing" secondItem="uwP-5W-3sg" secondAttribute="trailing" id="HG8-YO-S2h"/>
+                <constraint firstItem="uwP-5W-3sg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="TJX-tO-Q7k"/>
+                <constraint firstAttribute="trailing" secondItem="J9L-dx-GjZ" secondAttribute="trailing" id="bD5-6z-qO6"/>
+                <constraint firstAttribute="bottom" secondItem="uwP-5W-3sg" secondAttribute="bottom" id="cd0-p1-vK4"/>
+                <constraint firstAttribute="bottom" secondItem="J9L-dx-GjZ" secondAttribute="bottom" id="kvR-Wq-2SN"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="collectionView" destination="uwP-5W-3sg" id="Tce-fX-5DO"/>
+                <outlet property="pageControl" destination="J9L-dx-GjZ" id="Dv6-P5-J9R"/>
+            </connections>
+            <point key="canvasLocation" x="35.5" y="-189"/>
+        </view>
+    </objects>
+</document>

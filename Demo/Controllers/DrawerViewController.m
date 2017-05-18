@@ -8,6 +8,7 @@
 
 #import "DrawerViewController.h"
 #import "UIImageView+UIActivityIndicatorForSDWebImage.h"
+#import <MMDrawerController.h>
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #define APP_TINT_COLOR UIColorFromRGB(0xA9143C)
@@ -59,6 +60,30 @@
     //label.textColor = [UIColor colorWithRed:30.0/255.0 green:29.0/255.0 blue:39.0/255.0 alpha:1.0];
     return cell;
 }
+
+
+- (IBAction)onTapDrawerHeader:(id)sender {
+    
+    UIStoryboard *loginStoryboard = [UIStoryboard storyboardWithName:@"Entry" bundle: nil];
+    UINavigationController *navigationController = (UINavigationController *)[loginStoryboard instantiateViewControllerWithIdentifier:@"EntryNC"];
+    //LoginViewController *loginViewController = (LoginViewController *)[[navigationController viewControllers] objectAtIndex:0];
+//    loginViewController.delegate = (DrawerViewController *) self.mm_drawerController.leftDrawerViewController;
+    
+    [self.mm_drawerController closeDrawerAnimated:YES completion:nil];
+    [self presentViewController:navigationController animated:YES completion:nil];
+
+}
+
+
+
+- (void) didLoginWithSuccess
+{
+}
+
+
+
+
+
 /*
 #pragma mark - Navigation
 

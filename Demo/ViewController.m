@@ -9,6 +9,12 @@
 #import "ViewController.h"
 #import "SearchViewController.h"
 #import <Speech/Speech.h>
+#import "Slider.h"
+#import "UIImageView+UIActivityIndicatorForSDWebImage.h"
+
+
+
+#define SCROLL_PAGE_CONTROL_HEIGHT 20
 
 #define ADD_SearchIcon \
 UIImage *searchImage = [UIImage imageNamed:@"search"]; \
@@ -24,8 +30,12 @@ UIBarButtonItem *search = [[UIBarButtonItem alloc] initWithCustomView:searchButt
 [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:search, nil]];
 
 
-@interface ViewController ()<SFSpeechRecognizerDelegate>
+@interface ViewController ()<SFSpeechRecognizerDelegate>{
 
+    NSArray *GalleryImages;
+}
+
+@property (strong, nonatomic) UIScrollView *imagesScrollView;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UIButton *recordBtn;
 @property (strong, nonatomic) SFSpeechRecognizer *speechRecognizer;
@@ -34,6 +44,8 @@ UIBarButtonItem *search = [[UIBarButtonItem alloc] initWithCustomView:searchButt
 @property (strong, nonatomic) AVAudioEngine *audioEngine;
 // Locale Settings can be custommized for speech recognition supporting different languages
 @property (strong, nonatomic) NSLocale *defaultLocale;
+
+
 
 @end
 
@@ -80,6 +92,92 @@ UIBarButtonItem *search = [[UIBarButtonItem alloc] initWithCustomView:searchButt
     
     self.defaultLocale = [NSLocale localeWithLocaleIdentifier:@"en-US"];
     [self prepareSpeechRecognizerWithLocale:self.defaultLocale];
+    
+    
+    
+    
+    
+    
+    
+    Slider *slider = [[[NSBundle mainBundle] loadNibNamed:@"Slider" owner:self options:nil] objectAtIndex:0];
+    
+    CGRect frame = slider.frame;
+    frame.origin.x = 0;
+    frame.origin.y = 0;
+    frame.size.width = [UIScreen mainScreen].bounds.size.width;
+    frame.size.height = 300;
+    slider.frame = frame;
+    
+    
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    flowLayout.minimumInteritemSpacing = 10;
+    flowLayout.minimumLineSpacing = 10;
+    flowLayout.sectionInset = UIEdgeInsetsMake(2, 5, 2, 5);
+    slider.collectionView.collectionViewLayout = flowLayout;
+    
+    flowLayout.itemSize = CGSizeMake(slider.frame.size.width - 10, slider.collectionView.frame.size.height - 4);
+    
+    [slider.collectionView reloadData];
+    
+    slider.pageControl.numberOfPages = 4;
+    
+    [self.view addSubview:slider];
+//   
+//    [scrollViewItems addObject:slider];
+//    
+    
+    
+    
+    self.imagesScrollView = (UIScrollView *)[self.view viewWithTag:10];
+    self.imagesScrollView.backgroundColor = [UIColor redColor];
+    
+    
+    GalleryImages  = [NSArray arrayWithObjects:@"https://www.w3schools.com/css/img_fjords.jpg",@"https://www.w3schools.com/css/trolltunga.jpg",@"https://www.w3schools.com/css/img_fjords.jpg",@"https://www.w3schools.com/css/trolltunga.jpg", nil];
+
+    
+    
+    
+    
+    
+    
+    int i = 0;
+    for (NSString *galleryImages in GalleryImages){
+        
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.imagesScrollView.frame.size.width/2*i, 0, self.imagesScrollView.frame.size.width/2, self.imagesScrollView.frame.size.height/2)];
+        imageView.contentMode = UIViewContentModeScaleToFill;
+        
+        
+        [imageView setImageWithURL:[NSURL URLWithString:galleryImages] usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [self.imagesScrollView addSubview:imageView];
+        
+        
+        UIImageView *imageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(self.imagesScrollView.frame.size.width/2*i, self.imagesScrollView.frame.size.height/2, self.imagesScrollView.frame.size.width/2, self.imagesScrollView.frame.size.height/2)];
+        imageView2.contentMode = UIViewContentModeScaleToFill;
+        
+        
+        [imageView2 setImageWithURL:[NSURL URLWithString:galleryImages] usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [self.imagesScrollView addSubview:imageView2];
+
+        
+        i++;
+    
+    
+    }
+    
+    [self.imagesScrollView setContentSize:CGSizeMake(self.imagesScrollView.frame.size.width*i, self.imagesScrollView.frame.size.height)];
+    
+//    [self.imagesScrollView setContentOffset:CGPointMake((self.imagesScrollView.frame.size.width * self.imageNum), 0)];
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
 }

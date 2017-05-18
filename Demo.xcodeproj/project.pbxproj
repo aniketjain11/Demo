@@ -25,6 +25,10 @@
 		A011656A1ECB0A8B0017D2E4 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A01165691ECB0A8B0017D2E4 /* SearchViewController.m */; };
 		A011656C1ECB30410017D2E4 /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A011656B1ECB30410017D2E4 /* Speech.framework */; };
 		A011656E1ECB30E20017D2E4 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A011656D1ECB30E20017D2E4 /* AVKit.framework */; };
+		A01A03D01ECCBDBF00DB7C1A /* Entry.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01A03CF1ECCBDBF00DB7C1A /* Entry.storyboard */; };
+		A01A03D31ECCC64000DB7C1A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A01A03D21ECCC64000DB7C1A /* LoginViewController.m */; };
+		A0EFACFC1ECC64B8009BF987 /* Slider.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0EFACFB1ECC64B8009BF987 /* Slider.xib */; };
+		A0EFACFF1ECC64DF009BF987 /* Slider.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EFACFE1ECC64DF009BF987 /* Slider.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +62,12 @@
 		A01165691ECB0A8B0017D2E4 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		A011656B1ECB30410017D2E4 /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = System/Library/Frameworks/Speech.framework; sourceTree = SDKROOT; };
 		A011656D1ECB30E20017D2E4 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		A01A03CF1ECCBDBF00DB7C1A /* Entry.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Entry.storyboard; sourceTree = "<group>"; };
+		A01A03D11ECCC64000DB7C1A /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		A01A03D21ECCC64000DB7C1A /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		A0EFACFB1ECC64B8009BF987 /* Slider.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Slider.xib; sourceTree = "<group>"; };
+		A0EFACFD1ECC64DF009BF987 /* Slider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Slider.h; sourceTree = "<group>"; };
+		A0EFACFE1ECC64DF009BF987 /* Slider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Slider.m; sourceTree = "<group>"; };
 		B2F1297B2353878786B94C9D /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,6 +115,7 @@
 		A004C0A01ECA37BA00049A99 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				A0EFACFA1ECC6315009BF987 /* Xib */,
 				A01165631ECADA3A0017D2E4 /* Storyboards */,
 				A011655F1ECAD9100017D2E4 /* Controllers */,
 				A004C0AD1ECA37BB00049A99 /* Assets.xcassets */,
@@ -168,6 +179,8 @@
 				A004C0A81ECA37BB00049A99 /* ViewController.m */,
 				A01165681ECB0A8B0017D2E4 /* SearchViewController.h */,
 				A01165691ECB0A8B0017D2E4 /* SearchViewController.m */,
+				A01A03D11ECCC64000DB7C1A /* LoginViewController.h */,
+				A01A03D21ECCC64000DB7C1A /* LoginViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -178,9 +191,20 @@
 				A004C0AA1ECA37BB00049A99 /* Main.storyboard */,
 				A01165641ECADB2F0017D2E4 /* Drawer.storyboard */,
 				A01165661ECB0A510017D2E4 /* Search.storyboard */,
+				A01A03CF1ECCBDBF00DB7C1A /* Entry.storyboard */,
 			);
 			name = Storyboards;
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		A0EFACFA1ECC6315009BF987 /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				A0EFACFB1ECC64B8009BF987 /* Slider.xib */,
+				A0EFACFD1ECC64DF009BF987 /* Slider.h */,
+				A0EFACFE1ECC64DF009BF987 /* Slider.m */,
+			);
+			path = Xib;
 			sourceTree = "<group>";
 		};
 		CAD01592E3C107C7BA0F8D30 /* Frameworks */ = {
@@ -255,8 +279,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A01A03D01ECCBDBF00DB7C1A /* Entry.storyboard in Resources */,
 				A004C0B11ECA37BB00049A99 /* LaunchScreen.storyboard in Resources */,
 				A01165651ECADB2F0017D2E4 /* Drawer.storyboard in Resources */,
+				A0EFACFC1ECC64B8009BF987 /* Slider.xib in Resources */,
 				A004C0AE1ECA37BB00049A99 /* Assets.xcassets in Resources */,
 				A004C0AC1ECA37BB00049A99 /* Main.storyboard in Resources */,
 				A01165671ECB0A510017D2E4 /* Search.storyboard in Resources */,
@@ -326,6 +352,8 @@
 				A004C0BB1ECA3C4A00049A99 /* HttpService.m in Sources */,
 				A004C0A61ECA37BB00049A99 /* AppDelegate.m in Sources */,
 				A01165501ECAC58C0017D2E4 /* DemoBaseViewController.m in Sources */,
+				A01A03D31ECCC64000DB7C1A /* LoginViewController.m in Sources */,
+				A0EFACFF1ECC64DF009BF987 /* Slider.m in Sources */,
 				A004C0A31ECA37BA00049A99 /* main.m in Sources */,
 				A011655E1ECAD76D0017D2E4 /* DemoBaseTableViewController.m in Sources */,
 			);

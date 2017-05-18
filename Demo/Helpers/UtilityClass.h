@@ -15,5 +15,5 @@
 
 +(void)removeActivityIndicatorFromView : (UIView *)jokesView;
 +(void)setDefaultActivityIndicatorAtView:(UIView *)view showJokes:(BOOL)showJokes;
-
++(void)animatePageViewControl:(UIPageControl *)pageControl forScrollView:(UIScrollView*)scrollView;
 @end
